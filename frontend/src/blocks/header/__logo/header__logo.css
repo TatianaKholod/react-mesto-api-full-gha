@@ -1,0 +1,25 @@
+.header__logo {
+  box-sizing: border-box;
+  max-width: 142px;
+  max-height: 33px;
+  object-fit: contain;
+  object-position: center;
+  margin-top: 45px;
+  margin-bottom: 41px;
+}
+
+@media screen and (max-width: 900px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
+
+/* для мобильных */
+@media screen and (max-width: 425px) {
+  .header__logo {
+    max-width: 104px;
+    max-height: 25px;
+    margin-top: 28px;
+    margin-bottom: 30px;
+  }
+}

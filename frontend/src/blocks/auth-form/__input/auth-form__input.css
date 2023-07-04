@@ -1,0 +1,16 @@
+.auth-form__input {
+  box-sizing: inherit;
+  width: 100%;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid rgba(204, 204, 204, 1);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  color: rgba(204, 204, 204, 1);
+  background-color: inherit;
+  margin: 0 0 43px 0;
+  padding: 0;
+}

@@ -1,0 +1,5 @@
+.popup__container-image {
+  position: relative;
+  max-width: 75vw;
+  min-width: 282px;
+}

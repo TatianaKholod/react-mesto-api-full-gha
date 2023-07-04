@@ -1,0 +1,16 @@
+{
+    "env": {
+        "es2021": true
+    },
+    "extends": ["eslint:recommended", "airbnb-base"],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "globals": {
+      "require": true,
+      "module": true
+    },
+    "rules": {
+      "no-underscore-dangle": ["error", { "allow": ["_id"]}],
+    }
+}

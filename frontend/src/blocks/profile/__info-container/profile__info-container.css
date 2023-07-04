@@ -1,0 +1,11 @@
+.profile__info-container {
+  grid-area: info;
+  display: flex;
+}
+
+@media screen and (max-width: 570px) {
+  .profile__info-container {
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+}

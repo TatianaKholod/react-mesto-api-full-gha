@@ -1,0 +1,17 @@
+.page {
+  /* для всей страницы единое семейство шрифтов, цвет и заливка*/
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 1);
+  background-color: #000000;
+  /*сглаживать шрифты не стану - слишком мало текста*/
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 880px;
+  /*нужно футер всегда удерживать внизу*/
+  display: flex;
+  flex-direction: column;
+}

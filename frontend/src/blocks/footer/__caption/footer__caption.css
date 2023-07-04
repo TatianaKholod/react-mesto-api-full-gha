@@ -1,0 +1,15 @@
+.footer__caption {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  color: rgba(84, 84, 84, 1);
+}
+
+@media screen and (max-width: 425px) {
+  .footer__caption {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+}

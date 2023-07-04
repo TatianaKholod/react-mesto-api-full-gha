@@ -1,0 +1,11 @@
+.gallery__card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 auto;
+  box-sizing: inherit;
+  width: 282px;
+  border-radius: 10px;
+  overflow: hidden;
+}

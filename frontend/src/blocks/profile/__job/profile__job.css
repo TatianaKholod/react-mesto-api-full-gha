@@ -1,0 +1,6 @@
+.profile__job{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+}

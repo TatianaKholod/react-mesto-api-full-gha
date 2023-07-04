@@ -1,0 +1,15 @@
+.gallery__card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-gap: 17px;
+  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+}
+
+@media screen and (max-width: 570px) {
+  .gallery__card-list {
+    grid-gap: 20px;
+  }
+}

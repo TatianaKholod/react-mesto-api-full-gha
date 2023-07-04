@@ -1,0 +1,8 @@
+/*для блоков с одинаковыми горизонтальными границами*/
+@media screen and (max-width: 910px) {
+  .common-section {
+    min-width: 282px;
+    margin-left: 19px;
+    margin-right: 19px;
+  }
+}
