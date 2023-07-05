@@ -19,7 +19,7 @@ const request = (urlEndPoint, options) => {
 export const register = (email, password) => {
   return request("/signup", {
     method: "POST",
-    credentials: 'include', // теперь куки посылаются вместе с запросом
+    credentials: 'include',
     headers: headerJson,
     body: JSON.stringify({ email, password }),
   });
@@ -28,20 +28,27 @@ export const register = (email, password) => {
 export const autorize = (email, password) => {
   return request("/signin", {
     method: "POST",
-    credentials: 'include', // теперь куки посылаются вместе с запросом
+    credentials: 'include',
     headers: headerJson,
     body: JSON.stringify({ email, password }),
+  });
+};
+
+export const unAutorize = () => {
+  return request("/signin", {
+    method: "DELETE",
+    credentials: 'include',
+    headers: headerJson,
   });
 };
 
  export const getToken = () => {
   return request("/users/me", {
     method: "GET",
-    credentials: 'include', // теперь куки посылаются вместе с запросом
+    credentials: 'include',
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      /*Authorization: `Bearer ${token}`*/
     }
   });
 };

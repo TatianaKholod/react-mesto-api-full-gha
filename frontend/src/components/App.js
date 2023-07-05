@@ -77,7 +77,7 @@ function App() {
         if (data) {
           setLoggedIn(true);
           navigate("/");
-          setNameUsser(data.data.email);
+          setNameUsser(data.email);
         } else {
           setLoggedIn(false);
         }
@@ -107,20 +107,8 @@ function App() {
   function handleSubmitLogin(email, pwd) {
     authApi
       .autorize(email, pwd)
-      .then((data) => {
-        console.log(data);
-        console.log(email); //TODO нужен статус 200?
-        return email;
-        /* if (data.token) {
-          localStorage.setItem("token", data.token);
-          return data;
-        } else {
-          handleIsOpenAuthMsg(true);
-          return Promise.reject(`Ошибка: данные без токена!`);
-        } */
-      })
-      .then((email) => {
-        handleLogin(email); //TODO id нужно в curentUser поместить
+      .then(() => {
+        handleLogin(email);
         navigate("/");
       })
       .catch((err) => {
@@ -145,10 +133,16 @@ function App() {
   };
 
   function signOut() {
-    // localStorage.removeItem("token");
-    navigate("/sign-in");
-    setLoggedIn(false);
-    setNameUsser("");
+    authApi.unAutorize()
+    .then(()=>{
+      navigate("/sign-in");
+      setLoggedIn(false);
+      setNameUsser("");  
+    })
+    .catch((err) => {
+      console.log("Ошибка авторизации " + err);
+      handleIsOpenAuthMsg(true);
+    });
   }
 
   function handleCardLike(card) {

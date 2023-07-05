@@ -3,6 +3,7 @@ import {BASE_URL} from "./Auth.js";
 class Api {
   constructor(options) {
     this.baseUrl = options.baseUrl;
+    this.credentials = options.credentials;
     this.headers = options.headers;
   }
 
@@ -20,18 +21,21 @@ class Api {
   getInitialCards() {
     return this._request("/cards", {
       headers: this.headers,
+      credentials: this.credentials,
     });
   }
 
   getInitProfile() {
     return this._request("/users/me", {
       headers: this.headers,
+      credentials: this.credentials,
     });
   }
 
   updateProfile(name, job) {
     return this._request("/users/me", {
       method: "PATCH",
+      credentials: this.credentials,
       headers: this.headers,
       body: JSON.stringify({
         name: name,
@@ -43,6 +47,7 @@ class Api {
   createNewCard(name, link) {
     return this._request("/cards", {
       method: "POST",
+      credentials: this.credentials,
       headers: this.headers,
       body: JSON.stringify({
         name: name,
@@ -54,6 +59,7 @@ class Api {
   deleteCard(cardId) {
     return this._request(`/cards/${cardId}`, {
       method: "DELETE",
+      credentials: this.credentials,
       headers: this.headers,
     });
   }
@@ -61,6 +67,7 @@ class Api {
   _setLikeCard(cardId) {
     return this._request(`/cards/${cardId}/likes`, {
       method: "PUT",
+      credentials: this.credentials,
       headers: this.headers,
     });
   }
@@ -68,6 +75,7 @@ class Api {
   _delLikeCard(cardId) {
     return this._request(`/cards/${cardId}/likes`, {
       method: "DELETE",
+      credentials: this.credentials,
       headers: this.headers,
     });
   }
@@ -79,6 +87,7 @@ class Api {
   updateAvatar(avatar) {
     return this._request(`/users/me/avatar`, {
       method: "PATCH",
+      credentials: this.credentials,
       headers: this.headers,
       body: JSON.stringify({
         avatar: avatar,

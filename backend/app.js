@@ -1,13 +1,20 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
 const routes = require('./routes');
 
 const { PORT = 3002 } = process.env;
+const { CORS_ORIGIN = 'http://localhost:3000' } = process.env;
+const { HOST_MONGODD = 'localhost:27017' } = process.env;
 
 const app = express();
+app.use(cors({
+  origin: [CORS_ORIGIN],
+  credentials: true,
+}));
 
 // глобальный обработчик ошибок, пока только сообщим о неотловленной ошибке
 process.on('uncaughtException', (err, origin) => {
@@ -16,7 +23,7 @@ process.on('uncaughtException', (err, origin) => {
 });
 
 mongoose
-  .connect('mongodb://localhost:27017/mestodb', {
+  .connect(`mongodb://${HOST_MONGODD}/mestodb`, {
     useNewUrlParser: true,
     family: 4,
   })

@@ -25,9 +25,14 @@ const login = (req, res, next) => {
         maxAge: +COOKIE_MAXAGE,
         httpOnly: true,
       });
-      return res.send({ _id: id });
+      return res.send({ message: 'Приветствую!' });
     })
     .catch((err) => next(err));
+};
+
+const logout = (req, res) => {
+  res.clearCookie('token');
+  return res.send({ message: 'Возвращайся!' });
 };
 
 const createUser = (req, res, next) => {
@@ -49,4 +54,5 @@ const createUser = (req, res, next) => {
 module.exports = {
   createUser,
   login,
+  logout,
 };
