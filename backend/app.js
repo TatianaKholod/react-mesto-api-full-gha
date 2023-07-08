@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 
 const routes = require('./routes');
 
-const { PORT = 3002 } = process.env;
+const { PORT = 3000 } = process.env || 3000;
 const { CORS_ORIGIN = 'http://localhost:3000' } = process.env;
 const { HOST_MONGODD = 'localhost:27017' } = process.env;
 
