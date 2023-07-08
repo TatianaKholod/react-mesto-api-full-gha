@@ -1,4 +1,4 @@
-export const BASE_URL = document.location.protocol + "//" + process.env.REACT_APP_BASE_URL || "localhost:3002";
+export const BASE_URL = (process.env.REACT_APP_BASE_URL)? document.location.protocol + "//" + process.env.REACT_APP_BASE_URL : "http://localhost:3002"
 
 const headerJson = {
   Accept: "application/json",

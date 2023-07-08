@@ -11,6 +11,13 @@ const { requestLogger, errorLogger } = require('../middlewares/logger');
 
 router.use(requestLogger); // логгер запросов
 
+// lkz Краш-тест сервера
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 router.post('/signin', celebrate(ShemaLogin), login);
 router.post('/signup', celebrate(ShemaLogin), createUser);
 

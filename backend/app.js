@@ -11,8 +11,9 @@ const { CORS_ORIGIN = 'http://localhost:3000' } = process.env;
 const { HOST_MONGODD = 'localhost:27017' } = process.env;
 
 const app = express();
+
 app.use(cors({
-  origin: [CORS_ORIGIN],
+  origin: [new RegExp(CORS_ORIGIN)],
   credentials: true,
 }));
 
