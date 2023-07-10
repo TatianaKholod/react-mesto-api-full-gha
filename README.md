@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP 158.160.72.216
+IP 158.160.27.189
 
 Frontend https://tkholod.nomoredomains.work
 
