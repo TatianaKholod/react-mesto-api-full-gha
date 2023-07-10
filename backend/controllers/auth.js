@@ -3,8 +3,7 @@ const User = require('../models/user');
 const UnauthorizedError = require('../errors/unauthorized-error');
 const { generateToken } = require('../utils/jwt');
 
-const { HASH_SALT = 10 } = process.env;
-const { COOKIE_MAXAGE = 3600000 * 24 * 7 } = process.env;
+const { HASH_SALT, COOKIE_MAXAGE } = require('../utils/settings');
 
 const login = (req, res, next) => {
   const { email, password } = req.body;

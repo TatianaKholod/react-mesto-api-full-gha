@@ -1,14 +1,10 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
 const routes = require('./routes');
-
-const { PORT = 3000 } = process.env;
-const { CORS_ORIGIN = 'http://localhost:3000' } = process.env;
-const { HOST_MONGODD = 'localhost:27017' } = process.env;
+const { PORT, CORS_ORIGIN, HOST_MONGODD } = require('./utils/settings');
 
 const app = express();
 

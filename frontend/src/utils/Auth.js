@@ -1,4 +1,6 @@
-export const BASE_URL = (process.env.REACT_APP_BASE_URL)? document.location.protocol + "//" + process.env.REACT_APP_BASE_URL : "http://localhost:3000"
+export const BASE_URL = process.env.REACT_APP_BASE_URL
+  ? document.location.protocol + "//" + process.env.REACT_APP_BASE_URL
+  : "http://localhost:3000";
 
 const headerJson = {
   Accept: "application/json",
@@ -19,7 +21,7 @@ const request = (urlEndPoint, options) => {
 export const register = (email, password) => {
   return request("/signup", {
     method: "POST",
-    credentials: 'include',
+    credentials: "include",
     headers: headerJson,
     body: JSON.stringify({ email, password }),
   });
@@ -28,7 +30,7 @@ export const register = (email, password) => {
 export const autorize = (email, password) => {
   return request("/signin", {
     method: "POST",
-    credentials: 'include',
+    credentials: "include",
     headers: headerJson,
     body: JSON.stringify({ email, password }),
   });
@@ -37,18 +39,18 @@ export const autorize = (email, password) => {
 export const unAutorize = () => {
   return request("/signin", {
     method: "DELETE",
-    credentials: 'include',
+    credentials: "include",
     headers: headerJson,
   });
 };
 
- export const getToken = () => {
+export const getToken = () => {
   return request("/users/me", {
     method: "GET",
-    credentials: 'include',
+    credentials: "include",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-    }
+    },
   });
 };

@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const { JWT_SECRET = 'default-secret' } = process.env;
-const { JWT_EXPIRES = '7d' } = process.env;
+const { JWT_SECRET, JWT_EXPIRES } = require('./settings');
 
 const generateToken = (id) => jwt.sign({ _id: id }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
 
