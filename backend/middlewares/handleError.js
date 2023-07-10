@@ -25,7 +25,7 @@ const checkError = (err) => {
       break;
     default:
       definiteErr.status = ERROR_CODE_DB;
-      definiteErr.message = { message: err.message };
+      definiteErr.message = { message: 'На сервере произошла ошибка' }; // errorLogger сохранит err.message в лог
       break;
   }
   return definiteErr;

@@ -4,7 +4,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const { _id: idUser } = useContext(CurrentUserContext);
   // Определяем, являемся ли мы владельцем текущей карточки
-  const isOwn = card.owner === idUser; 
+  const isOwn = card.owner === idUser;
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   const isLiked = card.likes.some((i) => i._id === idUser);
 

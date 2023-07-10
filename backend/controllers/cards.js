@@ -8,7 +8,6 @@ const getCards = (req, res, next) => Card.find({}).populate('likes').sort({ crea
 
 const delCardById = (req, res, next) => {
   const { id: cardId } = req.params;
-  let cardDel = {};
 
   return Card.findById(cardId)
     .orFail(new NotFoundError('Объект не найден'))
@@ -16,10 +15,11 @@ const delCardById = (req, res, next) => {
       if (card.owner._id.toString() !== req.user._id) {
         return Promise.reject(new ForbiddenError('Объект не доступен'));
       }
-      cardDel = card.toJSON();
       return Card.deleteOne({ _id: cardId });
     })
-    .then(() => res.send(cardDel))
+    // deleteOne возвращает только количество удаленных объектов
+    // но может, пользователю и не нужно ничего знать об объекте, который он удалил
+    .then(() => res.send({ message: 'Карточка удалена' }))
     .catch(next);
 };
 
